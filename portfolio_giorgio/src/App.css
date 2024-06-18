@@ -1,0 +1,84 @@
+:root {
+    --background-color: #E0E1DD;
+    --btn-color: #415A77;
+    --btn-text-color: #E0E1DD;
+    --project-card-bg: #ffffff00;
+    --text-color: #0D1B2A;
+    --form-text-color: #415A77;
+    --footer-text-color: #415A77;
+}
+
+[data-theme='dark'] {
+    --background-color: #0D1B2A;
+    --btn-color: #E0E1DD;
+    --btn-text-color: #415A77;
+    --project-card-bg: #ffffff00;
+    --text-color: #E0E1DD;
+    --form-text-color: #E0E1DD;
+    --footer-text-color: #E0E1DD;
+}
+
+body {
+    background-color: var(--background-color); /* Settato come variabile, cambia  */
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+h1,h2,h3,p {
+    font-family: 'Fira Code', monospace, sans-serif;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, p {
+    font-weight: normal;
+}
+
+.sectionTitle {
+    margin-bottom: 10px;
+}
+
+.hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    #root {
+        gap: 100px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2,h3 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 20px;
+    }
+
+    .sectionTitle {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #root {
+        gap: 200px;
+    }
+    h1 {
+        font-size: 48px;
+    }
+
+    .sectionTitle {
+        margin-bottom: 75px;
+    }
+}

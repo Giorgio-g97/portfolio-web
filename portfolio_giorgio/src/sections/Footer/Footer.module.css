@@ -1,0 +1,14 @@
+.container {
+  text-align: center;
+}
+
+.container hr {
+  color: var(--footer-text-color);
+  border: 1px solid;
+  margin: 10px auto;
+}
+
+.container p {
+  font-size: 16px;
+  color: var(--footer-text-color);
+}
