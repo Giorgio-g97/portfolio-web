@@ -18,7 +18,7 @@ const Projects = () => {
                 <ProjectCard
                   src={BilingsSite}
                   link="https://github.com/Giorgio-g97/billings-project"
-                  h3="Bilings Method Website"
+                  h3="Billings Method Website"
                 />
             </div>
         </section>
