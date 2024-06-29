@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import {easeInOut, motion} from "framer-motion"
 
 /* STYLES */
 import styles from './Hero.module.css';
@@ -12,8 +13,35 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 /* CONTEXT */
 import { useTheme } from '../../common/ThemeContext';
+import { duration } from '@mui/material';
 
 const Hero = () => {
+
+  const socialContainer = {
+    start: {
+      opacity: 0,
+      scale: 0,
+    },
+    end: {
+        opacity: 1,
+        scale: 1,
+        transition:{
+          delayChildren: 0.3,
+          staggerChildren: 0.2
+        }
+    }
+  }
+
+  const socialIconVar = {
+    start: {
+      scale: 0,
+      opacity: 0,
+    },
+    end: {
+      scale: 1,
+      opacity: 1
+    }
+  }
 
   /* useContext */
   const { theme, toggleTheme } = useTheme(); //uso il contesto importato da "ThemeContext"
@@ -40,18 +68,68 @@ const Hero = () => {
   return (
     <section id="hero" className={styles.container}>
       <div className={styles.colorModeContainer}>
-        <img className={styles.hero} src={heroImg} alt="Giorgio's Avatar" />
+        <motion.img 
+        className={styles.hero} 
+        src={heroImg} 
+        alt="Giorgio's Avatar" 
+        initial={{
+          x: 200,
+          opacity: 0,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0, 0.71, 0.2, 1.01]
+        }}
+        />
         {themeIcon}
       </div>
       <div className={styles.info}>
-        <h1>
+        <motion.h1
+          initial={{
+            scale: 0,
+            opacity: 0,
+          }}
+          animate={{
+            scale: 1,
+            opacity: 1
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0, 0.71, 0.2, 1.01]
+          }}
+        >
           Giorgio <br />
           Guadagno
-        </h1>
-        <h2>Web Developer</h2>
-        <span>
-          <a href="https://github.com/Giorgio-g97" target="_blank">
-            {/* <GithubIcon fontSize='medium'  sx={{ color: [theme === 'light' ? 'black' : 'white'] }} alt="Github Icon" /> */}
+        </motion.h1>
+        <motion.h2
+          initial={{
+            scale: 0,
+            opacity: 0,
+          }}
+          animate={{
+            scale: 1,
+            opacity: 1
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01]
+          }}
+        >Web Developer</motion.h2>
+        {/* Elenco icone Social */}
+        <motion.span
+          variants={socialContainer}
+          initial="start"
+          animate="end"
+          
+        >
+          <motion.a
+          variants={socialIconVar}
+          href="https://github.com/Giorgio-g97" target="_blank">
             {theme === 'light' ? (
               <svg
                 viewBox="0 0 20 20"
@@ -151,8 +229,9 @@ const Hero = () => {
                 </g>
               </svg>
             )}
-          </a>
-          <a
+          </motion.a>
+          <motion.a
+            variants={socialIconVar}
             href="https://www.linkedin.com/in/giorgio-guadagno"
             target="_blank"
           >
@@ -207,8 +286,10 @@ const Hero = () => {
                 </g>
               </svg>
             )}
-          </a>
-          <a href="mailto:giorgio.g97@gmail.com">
+          </motion.a>
+          <motion.a
+          variants={socialIconVar}
+          href="mailto:giorgio.g97@gmail.com">
             {/* <EmailIcon fontSize='medium'  sx={{ color: [theme === 'light' ? 'black' : 'white'] }} alt="Mail Icon" /> */}
 
             {theme === 'light' ? (
@@ -267,11 +348,16 @@ const Hero = () => {
                 </g>
               </svg>
             )}
-          </a>
-        </span>
-        <p className={styles.description}>
+          </motion.a>
+        </motion.span>
+        <motion.p 
+        initial={{x: -200, opacity: 0}}
+        animate={{x: 0, opacity: 1}}
+        transition={{duration: 0.8,
+          ease: [0, 0.71, 0.2, 1.01]}}
+        className={styles.description}>
           Creazione di siti web per piccole/medie imprese
-        </p>
+        </motion.p>
           <a href="#contact">
             <button>Get in touch</button>
           </a>
