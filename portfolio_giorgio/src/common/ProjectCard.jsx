@@ -7,7 +7,8 @@ const ProjectCard = ({src, link, h3}) => {
         <a href={link} className={styles.containerLink} target='_blank'>
           <img src={src} alt={`${h3} logo`} />
           <h3>{h3}</h3>
-          <p>Streaming App</p>
+          <p>Streaming App</p> {/* mettere icona */}
+          <p>Github Code</p> {/* mettere icona */}
         </a>
     </>
   )
