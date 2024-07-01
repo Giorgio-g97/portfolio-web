@@ -45,7 +45,7 @@ const Projects = () => {
                 <ProjectCard
                   isInView={isInView}
                   src={BilingsSite}
-                  liveLink="https://todolist-react-giorgio.netlify.app/"
+                  liveLink="https://billings-project.netlify.app/"
                   link="https://github.com/Giorgio-g97/billings-project"
                   h3="Billings Method Website"
                 />
